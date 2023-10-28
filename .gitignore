@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Python virtual environment
+venv/
+Scripts/
+*.pyc
+*.pyo
+*.pyd
+
+# Django
+*.log
+*.pot
+*.pyc
+db.sqlite3
+db.sqlite3-journal
+
+# Node.js and NPM
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn.lock
+
+# Compiled Vue.js and JavaScript files
+/dist/
+/tmp/
+*.map
+
+# PostgreSQL
+*.dump
+
+# Windows system files
+Thumbs.db
+Desktop.ini
+
+# Visual Studio Code
+.vscode/
+
+# Compiled CSS and SASS
+*.css
+*.sass
+*.scss
+
+# Static files
+static/
+media/
+
+# Environment variables
+.env
