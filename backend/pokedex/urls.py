@@ -19,7 +19,6 @@ from django.urls import path
 from api import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('pokemons/', views.PokemonList.as_view(), name='pokemon-list'),
-    path('pokemons/<int:pk>/', views.PokemonDetail.as_view(), name='pokemon-detail'),
+    path('api/pokedex/', views.PokemonList.as_view(), name='pokemon-list'),
+    path('api/pokedex/<int:nb>/', views.PokemonDetail.as_view(), name='pokemon-detail'),
 ]
