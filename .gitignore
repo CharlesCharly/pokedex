@@ -1,4 +1,4 @@
-# Python
+### Python
 __pycache__/
 *.pyc
 *.pyo
@@ -18,35 +18,51 @@ Scripts/
 db.sqlite3
 db.sqlite3-journal
 
-# Node.js and NPM
-node_modules/
-npm-debug.log
-yarn-error.log
-yarn.lock
-
-# Compiled Vue.js and JavaScript files
-/dist/
-/tmp/
-*.map
-
 # PostgreSQL
 *.dump
 
-# Windows system files
-Thumbs.db
-Desktop.ini
-
-# Visual Studio Code
-.vscode/
-
-# Compiled CSS and SASS
-*.css
-*.sass
-*.scss
-
-# Static files
-static/
-media/
-
 # Environment variables
 .env
+
+### Node
+# Logs
+/logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+
+# next.js build output
+.next
+
+# nuxt.js build output
+.nuxt
+
+# Nuxt generate
+dist
