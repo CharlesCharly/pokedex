@@ -18,6 +18,3 @@ class PokemonDetail(generics.RetrieveAPIView):
             return Pokemon.objects.get(pokedex_number=nb)
         except Pokemon.DoesNotExist:
             raise Http404("Pokemon not found")
-
-# TODO Handle errors
-# TODO Write tests

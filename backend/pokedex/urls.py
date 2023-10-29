@@ -20,5 +20,5 @@ from api import views
 
 urlpatterns = [
     path('api/pokedex/', views.PokemonList.as_view(), name='pokemon-list'),
-    path('api/pokedex/<int:nb>/', views.PokemonDetail.as_view(), name='pokemon-detail'),
+    path('api/pokemon/<int:nb>/', views.PokemonDetail.as_view(), name='pokemon-detail'),
 ]
