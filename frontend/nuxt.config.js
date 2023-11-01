@@ -20,7 +20,7 @@ export default {
   css: ["@/assets/styles/tailwind.css"],
 
   // https://go.nuxtjs.dev/config-plugins
-  plugins: ["@/plugins/api.js"],
+  plugins: ["@/plugins/api.js", "@/plugins/helpers.js"],
 
   // https://go.nuxtjs.dev/config-components
   components: true,
@@ -32,7 +32,7 @@ export default {
   ],
 
   // https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios'],
+  modules: ["@nuxtjs/axios"],
 
   // https://go.nuxtjs.dev/config-build
   build: {},

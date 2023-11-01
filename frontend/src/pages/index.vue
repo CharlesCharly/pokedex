@@ -32,6 +32,7 @@
     </div>
 
     <div v-for="pokemon in pokemonList" :key="pokemon.id">
+      <img :src="pokemonImgUrl(pokemon.pokedex_number)" />
       {{ pokemon }}
     </div>
   </div>
@@ -49,6 +50,8 @@ export default {
       sortFilter: "pokedex_number",
       typeFilter: "all_types",
       asc: true,
+      imgUrl:
+        "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/thumbnails-compressed/",
     };
   },
   computed: {
@@ -76,6 +79,9 @@ export default {
         asc: this.asc,
       });
     },
+    pokemonImgUrl(pokedex_number) {
+      return `${this.imgUrl}${this.$helpers.toThreeDigits(pokedex_number)}.png`
+    }
   },
 };
 </script>
