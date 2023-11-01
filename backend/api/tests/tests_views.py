@@ -10,8 +10,16 @@ class PokemonListTests(TestCase):
     self.client = APIClient()
 
   def test_list_pokemons(self):
+    # Define query parameters matching the view's parameters
+    query_params = {
+        'searchQuery': 'charm',
+        'sortFilter': 'pokedex_number',
+        'typeFilter': 'all_types',
+        'asc': 'true',
+    }
+
     url = reverse('pokemon-list')
-    response = self.client.get(url)
+    response = self.client.get(url, query_params)
     self.assertEqual(response.status_code, status.HTTP_200_OK)
 
 class PokemonDetailTests(TestCase):
@@ -20,6 +28,6 @@ class PokemonDetailTests(TestCase):
     self.pokemon = create_test_pokemon()
 
   def test_retrieve_pokemon(self):
-    url = reverse('pokemon-detail', kwargs={'nb': self.pokemon.pokedex_number})
+    url = reverse('pokemon-detail', kwargs={'pokedex_number': self.pokemon.pokedex_number})
     response = self.client.get(url)
     self.assertEqual(response.status_code, status.HTTP_200_OK)

@@ -30,7 +30,7 @@ class PokemonList(generics.ListAPIView):
         filters = Q()
 
         # Apply if the user has typed 2 or more characters
-        if len(search_query) >= 2:
+        if search_query is not None and len(search_query) >= 2:
             filters &= Q(name__icontains=search_query)
 
         # Ignore if the filter is on "all"
