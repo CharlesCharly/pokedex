@@ -5,7 +5,7 @@ from .models import Pokemon
 class PokemonListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pokemon
-        fields = ['name', 'type1', 'type2', 'pokedex_number', 'height_m', 'weight_kg']
+        fields = ['id', 'name', 'type1', 'type2', 'pokedex_number', 'height_m', 'weight_kg']
 
 # JSON data <> Python data structures
 class PokemonDetailSerializer(serializers.ModelSerializer):

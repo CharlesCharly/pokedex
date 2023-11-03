@@ -34,7 +34,7 @@ class PokemonList(generics.ListAPIView):
             filters &= Q(name__icontains=search_query)
 
         # Ignore if the filter is on "all"
-        if type_filter != "all_types":
+        if type_filter != "all":
             filters &= Q(Q(type1=type_filter) | Q(type2=type_filter))
 
         # Apply sorting

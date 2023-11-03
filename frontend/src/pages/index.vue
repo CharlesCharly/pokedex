@@ -1,39 +1,30 @@
 <template>
   <div>
     <div>
-      <label>
-        <input type="radio" v-model="sortFilter" value="pokedex_number" />
-        Number
-      </label>
-      <label>
-        <input type="radio" v-model="sortFilter" value="height_m" /> Height
-      </label>
-      <label>
-        <input type="radio" v-model="sortFilter" value="weight_kg" /> Weight
-      </label>
-      <label> <input type="checkbox" v-model="asc" /> Ascending </label>
-      <button @click="handleFilters">Apply Filter</button>
+      <Header>
+        <template #title>
+          <p>Pokedex</p>
+        </template>
+      </Header>
     </div>
 
     <div>
-      <input
-        v-model="searchQuery"
-        @input="handleFilters"
-        placeholder="Search..."
+      <PokedexFilters
+        :search-query="searchQuery"
+        :sort-filter="sortFilter"
+        :is-asc="asc"
+        :type-filter="typeFilter"
+        :pokemon-types="pokemonTypes"
+        @handleChange="handleFilters"
       />
     </div>
 
     <div>
-      <label for="pokemonType">Pokemon Type:</label>
-      <select id="pokemonType" v-model="typeFilter" @change="handleFilters">
-        <option value="all_types">All Types</option>
-        <option v-for="type in pokemonTypes" :value="type">{{ type }}</option>
-      </select>
-    </div>
-
-    <div v-for="pokemon in pokemonList" :key="pokemon.id">
-      <img :src="pokemonImgUrl(pokemon.pokedex_number)" />
-      {{ pokemon }}
+      <PokemonCard
+        v-for="pokemon in pokemonList"
+        :key="pokemon.pokedex_number"
+        :pokemon="pokemon"
+      />
     </div>
   </div>
 </template>
@@ -41,17 +32,23 @@
 <script>
 import { mapActions } from "vuex";
 import { mapFields } from "vuex-map-fields";
+import Header from "@/components/layout/Header.vue";
+import PokedexFilters from "@/components/filters/PokedexFilters.vue";
+import PokemonCard from "@/components/cards/PokemonCard.vue";
 
 export default {
   name: "Pokedex",
+  components: {
+    Header,
+    PokedexFilters,
+    PokemonCard,
+  },
   data() {
     return {
       searchQuery: "",
       sortFilter: "pokedex_number",
-      typeFilter: "all_types",
+      typeFilter: "all",
       asc: true,
-      imgUrl:
-        "https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/thumbnails-compressed/",
     };
   },
   computed: {
@@ -71,17 +68,14 @@ export default {
       getPokemonList: "pokemon/getPokemonList",
       getPokemonTypes: "pokemon/getPokemonTypes",
     }),
-    handleFilters() {
+    handleFilters(data) {
       this.getPokemonList({
-        searchQuery: this.searchQuery,
-        sortFilter: this.sortFilter,
-        typeFilter: this.typeFilter,
-        asc: this.asc,
+        searchQuery: data.search,
+        sortFilter: data.radiobtn,
+        asc: data.checkbox,
+        typeFilter: data.type,
       });
     },
-    pokemonImgUrl(pokedex_number) {
-      return `${this.imgUrl}${this.$helpers.toThreeDigits(pokedex_number)}.png`
-    }
   },
 };
 </script>
