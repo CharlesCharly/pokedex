@@ -37,6 +37,17 @@ export const actions = {
       console.error(error);
     }
   },
+
+  async getPokemonDetail({ commit, state }, payload) {
+    let pokemonDetailUrl = `${URL.POKEMON_DETAIL}${payload}`;
+
+    try {
+      const pokemonDetail = await this.$api.get(pokemonDetailUrl);
+      commit("setPokemonDetail", pokemonDetail);
+    } catch (error) {
+      console.error(error);
+    }
+  },
 };
 
 export const mutations = {
@@ -61,4 +72,12 @@ export const mutations = {
       Vue.set(state, "pokemonTypes", []);
     }
   },
+
+  setPokemonDetail(state, payload) {
+    if (payload) {
+      Vue.set(state, "pokemon", payload);
+    } else {
+      Vue.set(state, "pokemon", []);
+    }
+  }
 };

@@ -3,7 +3,6 @@ from rest_framework import generics
 from .models import Pokemon
 from .serializers import PokemonListSerializer, PokemonDetailSerializer
 from rest_framework.filters import OrderingFilter, SearchFilter
-from rest_framework.response import Response
 from django.http import Http404
 from django.db.models import Q
 
@@ -52,8 +51,9 @@ class PokemonDetail(generics.RetrieveAPIView):
     lookup_field = 'pokedex_number'
 
     def get_object(self):
+        pokedex_number = self.kwargs.get(self.lookup_field)
         try:
-            return super().get_object()
+            return self.queryset.get(pokedex_number=pokedex_number)
         except Pokemon.DoesNotExist:
             raise Http404("Pokemon not found")
 

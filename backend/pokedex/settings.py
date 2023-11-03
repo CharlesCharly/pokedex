@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -56,14 +57,24 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 # Set to True to allow all origins
 CORS_ALLOW_ALL_ORIGINS = False
 # Set to True if your frontend sends credentials
 CORS_ALLOW_CREDENTIALS = True
-
+CORS_ALLOW_HEADERS = (
+    'Content-Type',
+    'Authorization',
+)
+CORS_ALLOW_METHODS = (
+    'GET',
+    'POST',
+    'PUT',
+    'PATCH',
+    'DELETE',
+    'OPTIONS',
+)
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
