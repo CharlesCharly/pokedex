@@ -1,46 +1,45 @@
 <template>
   <div>
-    <span
-      class="inline-block bg-red-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 ml-2"
-    >
-      Attack {{ pokemon.attack }}</span
-    >
-    <span
-      class="inline-block bg-cyan-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 ml-2"
-    >
-      Defense {{ pokemon.defense }}
-    </span>
-    <span
-      class="inline-block bg-red-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 ml-2"
-    >
-      SP Attack {{ pokemon.sp_attack }}</span
-    >
-    <span
-      class="inline-block bg-cyan-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 ml-2"
-    >
-      SP Defense {{ pokemon.sp_defense }}</span
-    >
-    <span
-      class="inline-block bg-red-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 ml-2"
-    >
-      HP {{ pokemon.hp }}</span
-    >
-    <span
-      class="inline-block bg-cyan-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 ml-2"
-    >
-      Speed {{ pokemon.speed }}</span
-    >
+    <RadarChart
+      :series-data="combatStats"
+      :xaxis-categories="combatLabel"
+    />
   </div>
 </template>
 
 <script>
+import RadarChart from "@/components/common/RadarChart.vue";
+
 export default {
   name: "PokemonType",
+  components: {
+    RadarChart,
+  },
   props: {
     pokemon: {
       type: Object,
       default: () => {},
     },
+  },
+  data() {
+    return {
+      combatStats: [
+        this.pokemon.attack,
+        this.pokemon.defense,
+        this.pokemon.sp_attack,
+        this.pokemon.sp_defense,
+        this.pokemon.hp,
+        this.pokemon.speed,
+      ],
+      combatLabel: [
+        "Attack",
+        "Defense",
+        "SP Attack",
+        "SP Defense",
+        "HP",
+        "Speed",
+      ],
+    };
   },
 };
 </script>

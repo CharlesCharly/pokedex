@@ -59,7 +59,7 @@
         {{ pokemon.name }}
       </div>
       <div class="flex items-center justify-center italic text-sm">
-        <span>Generation {{ pokemon.generation }}</span>
+        <span>{{ pokemon.classification }} - Generation {{ pokemon.generation }}</span>
       </div>
       <div class="flex items-center justify-center text-l mt-4 mb-4">
         <img src="~/assets/images/japan.png" class="h-6 w-6 inline mr-2" />
@@ -77,15 +77,6 @@
         :pokemon="pokemon"
         class="flex items-center justify-center mb-4 mt-4"
       />
-
-      <!-- Classification -->
-      <div class="flex items-center justify-center mb-4 mt-4">
-        <span
-          class="bg-transparent text-black font-semibold py-2 px-4 border border-black rounded-lg"
-        >
-          {{ pokemon.classification }}
-        </span>
-      </div>
 
       <!-- Combat Stats -->
       <PokemonCombatStats
