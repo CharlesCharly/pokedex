@@ -5,6 +5,7 @@ from .serializers import PokemonListSerializer, PokemonDetailSerializer
 from rest_framework.filters import OrderingFilter, SearchFilter
 from django.http import Http404
 from django.db.models import Q
+from rest_framework.pagination import PageNumberPagination
 
 class PokemonList(generics.ListAPIView):
     serializer_class = PokemonListSerializer
@@ -14,6 +15,10 @@ class PokemonList(generics.ListAPIView):
 
     # Define a base queryset
     queryset = Pokemon.objects.all()
+
+    # Can be used to override the page size set up in settings
+    # pagination_class = PageNumberPagination
+    # page_size = 100
 
     def get_queryset(self):
         # Start with the base queryset

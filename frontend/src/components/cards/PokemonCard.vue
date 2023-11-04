@@ -1,6 +1,6 @@
 <template>
   <NuxtLink :to="`/pokemon/${pokemon.pokedex_number}`" target="_blank">
-    <div class="w-80 rounded-lg shadow-inner m-2">
+    <div class="rounded-lg shadow-inner m-2">
       <!-- Pokemon img -->
       <div class="flex items-center justify-center pt-2">
         <img :src="$helpers.pokemonImgUrl(pokemon.pokedex_number)" />

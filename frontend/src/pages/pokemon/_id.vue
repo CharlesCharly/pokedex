@@ -5,7 +5,7 @@
         <template #title>
           <img
             src="~/assets/images/pokeball.png"
-            class="inline h-24 w-24 rotating-image"
+            class="inline h-12 w-12 rotating-image"
           />
         </template>
       </Header>
