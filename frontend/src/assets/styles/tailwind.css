@@ -1,3 +1,37 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating-image {
+  animation: rotate 2s linear infinite;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  background-color: #000;
+  color: #fff;
+  border-radius: 4px;
+  width: 240px;
+  padding: 4px;
+  top: -30px; /* Adjust the position based on your design */
+  left: 100%; /* Center the tooltip horizontally */
+}
+
+.image-container:hover .tooltip {
+  display: block;
+}

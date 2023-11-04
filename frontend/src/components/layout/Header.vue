@@ -1,13 +1,6 @@
 <template>
-  <div>
-    <slot name="home">
-      <button
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-      >
-        Home
-      </button>
-    </slot>
-    <div>
+  <div class="w-full my-6">
+    <div class="flex items-center justify-center">
       <slot name="title" />
     </div>
   </div>

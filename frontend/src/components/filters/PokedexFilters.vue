@@ -1,48 +1,65 @@
 <template>
-  <div>
-    <div>
+  <div class="">
+    <div class="flex mb-4 justify-center">
       <!-- Research bar -->
-      <SearchBar v-model="searchValue" @input="handleChange" />
+      <div class="text-center">
+        <SearchBar v-model="searchValue" @input="handleChange" />
+      </div>
 
       <!-- Pokemon types -->
-      <Dropdown
-        v-model="dropdownValue"
-        :list="pokemonTypes"
-        all-label="All Types"
-        @input="handleChange"
-      />
+      <div class="text-center">
+        <Dropdown
+          v-model="dropdownValue"
+          :list="pokemonTypes"
+          all-label="All Types"
+          @input="handleChange"
+        />
+      </div>
+    </div>
 
+    <div class="flex mb-4 justify-center">
       <!-- Pokedex number -->
-      <RadioButton
-        v-model="radioBtnValue"
-        type="radio"
-        box-id="pokedex_number"
-        name="Number"
-        @input="handleChange"
-      />
+      <div class="mx-2 text-center">
+        <RadioButton
+          v-model="radioBtnValue"
+          type="radio"
+          box-id="pokedex_number"
+          name="Number"
+          @input="handleChange"
+        />
+      </div>
+
       <!-- Pokemon Height -->
-      <RadioButton
-        v-model="radioBtnValue"
-        type="radio"
-        box-id="height_m"
-        name="Height"
-        @input="handleChange"
-      />
+      <div class="mx-2 text-center">
+        <RadioButton
+          v-model="radioBtnValue"
+          type="radio"
+          box-id="height_m"
+          name="Height"
+          @input="handleChange"
+        />
+      </div>
+
       <!-- Pokemon Weight -->
-      <RadioButton
-        v-model="radioBtnValue"
-        type="radio"
-        box-id="weight_kg"
-        name="Weight"
-        @input="handleChange"
-      />
+      <div class="mx-2 text-center">
+        <RadioButton
+          v-model="radioBtnValue"
+          type="radio"
+          box-id="weight_kg"
+          name="Weight"
+          @input="handleChange"
+        />
+      </div>
+
       <!-- Asc / Desc option -->
-      <RadioButton
-        v-model="checkboxValue"
-        type="checkbox"
-        name="Ascending"
-        @input="handleChange"
-      />
+      <div class="mx-2 mr-auto text-center">
+        <RadioButton
+          v-model="checkboxValue"
+          type="checkbox"
+          name="Ascending"
+          @input="handleChange"
+        />
+      </div>
     </div>
   </div>
 </template>

@@ -1,14 +1,14 @@
 <template>
-  <div>
-    <div>
+  <div class="flex flex-col items-center justify-center">
+    <div class="flex">
       <Header>
         <template #title>
-          <p>Pokedex</p>
+          <img src="~/assets/images/pokemon.png" class="inline h-24 w-72">
         </template>
       </Header>
     </div>
 
-    <div>
+    <div class="flex">
       <PokedexFilters
         :search-query="searchQuery"
         :sort-filter="sortFilter"
@@ -19,10 +19,10 @@
       />
     </div>
 
-    <div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-8">
       <PokemonCard
         v-for="pokemon in pokemonList"
-        :key="pokemon.pokedex_number"
+        :key="pokemon.id"
         :pokemon="pokemon"
       />
     </div>

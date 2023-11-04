@@ -19,7 +19,7 @@ export default {
   data() {
     return {
       innerValue: this.value,
-      placeholder: "Search ...",
+      placeholder: "Start typing here !",
     };
   },
   watch: {
