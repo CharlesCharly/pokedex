@@ -1,5 +1,4 @@
 from django.test import TestCase
-from api.models import Pokemon
 from api.serializers import PokemonListSerializer, PokemonDetailSerializer
 from .tests_factories import create_test_pokemon
 

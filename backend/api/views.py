@@ -1,12 +1,10 @@
 from django.http import JsonResponse
-from rest_framework import generics, status
-from .models import Pokemon
-from .serializers import PokemonListSerializer, PokemonDetailSerializer
+from rest_framework import generics
 from rest_framework.filters import OrderingFilter, SearchFilter
 from django.http import Http404
 from django.db.models import Q
-import json
-from rest_framework.response import Response
+from .models import Pokemon
+from .serializers import PokemonListSerializer, PokemonDetailSerializer
 
 class PokemonList(generics.ListAPIView):
     serializer_class = PokemonListSerializer

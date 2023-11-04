@@ -3,9 +3,8 @@ export default ({ app, store }, inject) => {
     async wrapper(endpoint, params, config, verb = "$get") {
       app.$axios.setHeader("Content-Type", "application/json;charset=UTF-8");
       app.$axios.setHeader("Accept", "application/json;charset=UTF-8");
-      //TO IMPROVE - Add token
-      // const token = await StylePropertyMap.dispatch("auth/getIdToken");
-      // app.$axios.setToken(token, "Bearer");
+      // Add custom header to restrain access to the API
+      app.$axios.setHeader("X-FRONTEND-REQUEST", "true");
 
       return app.$axios[verb](endpoint, params, config);
     },
